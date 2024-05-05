@@ -7,5 +7,6 @@
 ## master 分支
 用于正式版本分支， 
 
-# 编程规范
+# C++编程规范指导参考
 Google C++ Style Guide[[Google C++ Style Guide](https://google.github.io/styleguide/cppguide.html)]
+C++ Core Guidelines[[C++ Core Guidelines](https://isocpp.github.io/CppCoreGuidelines/CppCoreGuidelines)]
