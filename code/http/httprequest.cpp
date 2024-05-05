@@ -213,7 +213,9 @@ bool HttpRequest::UserVerify(const string &name, const string &pwd, bool isLogin
     assert(sql);
     
     bool flag = false;
+    unsigned int j = 0;
     char order[256] = { 0 };
+    MYSQL_FIELD *fields = nullptr;
     MYSQL_RES *res = nullptr;
     
     if(!isLogin) { flag = true; }
