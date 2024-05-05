@@ -300,7 +300,7 @@ SpacesInParentheses: false
 SpacesInSquareBrackets: false
  
 # 标准: Cpp03, Cpp11, Auto
-Standard: Cpp11
+Standard: Cpp17
  
 # tab宽度
 TabWidth: 4
