@@ -6,3 +6,6 @@
 用于临时开发的分支， 每周做一次总结
 ## master 分支
 用于正式版本分支， 
+
+# 编程规范
+Google C++ Style Guide[[Google C++ Style Guide](https://google.github.io/styleguide/cppguide.html)]
