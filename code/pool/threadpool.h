@@ -1,8 +1,52 @@
+/*
+ * @Author: Caviar
+ * @Date: 2024-05-26 16:06:49
+ * @LastEditors: Caviar
+ * @LastEditTime: 2024-05-26 17:40:02
+ * @Description: 
+ */
+
+#pragma once
+
+#include <type_traits>
+
+constexpr size_t DEFAULT_THREADS_NUM{8}; // 默认线程池容量
+
 // 定义一个线程池类
 class ThreadPool {
+private:
+    // 工作线程执行的函数
+    void WorkerThread() {
+        std::unique_lock<std::mutex> lock(pool_->mtx);
+        while(!pool_->isClosed || !pool_->tasks.empty()) { // 当未关闭或有任务时继续
+            if(pool_->tasks.empty()) { // 无任务则等待
+                pool_->cond.wait(lock);
+            } else {
+                // 获取并移除队首任务，解锁执行，完成后重新上锁
+                auto task = std::move(pool_->tasks.front());
+                pool_->tasks.pop();
+                lock.unlock();
+                task();
+                lock.lock();
+            }
+        }
+    }
+
+    // 线程池内部使用的数据结构，包括同步锁、条件变量、关闭标志和任务队列
+    struct Pool {
+        std::mutex mtx;
+        std::condition_variable cond;
+        bool isClosed{false};
+        std::queue<std::function<void()>> tasks;
+    };
+
+    // 实例变量：共享池状态指针和工作线程集合
+    std::shared_ptr<Pool> pool_;
+    std::vector<std::thread> workers_;
+
 public:
-    // 构造函数，允许指定线程池中的线程数量，默认为8
-    explicit ThreadPool(size_t threadCount = 8)
+    // 构造函数，允许指定线程池中的线程数量
+    explicit ThreadPool(size_t threadCount = DEFAULT_THREADS_NUM)
     : pool_{std::make_shared<Pool>()} { // 使用共享指针存储线程池状态
         assert(threadCount > 0); // 确保线程数量大于0
         
@@ -49,37 +93,4 @@ public:
             AddTask(std::function<void()>{std::forward<F>(task)});
         }
     }
-
-private:
-    // 工作线程执行的函数
-    void WorkerThread() {
-        std::unique_lock<std::mutex> lock(pool_->mtx);
-        while(!pool_->isClosed || !pool_->tasks.empty()) { // 当未关闭或有任务时继续
-            if(pool_->tasks.empty()) { // 无任务则等待
-                pool_->cond.wait(lock);
-            } else {
-                // 获取并移除队首任务，解锁执行，完成后重新上锁
-                auto task = std::move(pool_->tasks.front());
-                pool_->tasks.pop();
-                lock.unlock();
-                task();
-                lock.lock();
-            }
-        }
-    }
-
-    // 线程池内部使用的数据结构，包括同步锁、条件变量、关闭标志和任务队列
-    struct Pool {
-        std::mutex mtx;
-        std::condition_variable cond;
-        bool isClosed{false};
-        std::queue<std::function<void()>> tasks;
-    };
-
-    // 实例变量：共享池状态指针和工作线程集合
-    std::shared_ptr<Pool> pool_;
-    std::vector<std::thread> workers_;
 };
-
-// 预处理器指令，通常用来指示头文件的结尾，此处作为示例注释结束
-#endif // THREADPOOL_H
