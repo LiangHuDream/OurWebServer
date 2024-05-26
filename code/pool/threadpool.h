@@ -1,85 +1,70 @@
-// 定义一个线程池类
+#ifndef THREADPOOL_H
+#define THREADPOOL_H
+
+#include <mutex>
+#include <condition_variable>
+#include <queue>
+#include <thread>
+#include <functional>
 class ThreadPool {
 public:
-    // 构造函数，允许指定线程池中的线程数量，默认为8
-    explicit ThreadPool(size_t threadCount = 8)
-    : pool_{std::make_shared<Pool>()} { // 使用共享指针存储线程池状态
-        assert(threadCount > 0); // 确保线程数量大于0
-        
-        // 创建指定数量的工作线程，每个线程都运行WorkerThread函数
-        for(size_t i = 0; i < threadCount; ++i) {
-            workers_.emplace_back([this] {
-                WorkerThread(); // 捕获this指针以访问ThreadPool的成员
-            });
-        }
-    }
+    explicit ThreadPool(size_t threadCount = 8): pool_(std::make_shared<Pool>()) {
+            assert(threadCount > 0);
 
-    // 禁止拷贝构造和赋值操作，防止资源管理问题
-    ThreadPool(const ThreadPool&) = delete;
-    ThreadPool& operator=(const ThreadPool&) = delete;
-
-    // 默认实现移动构造和移动赋值操作符
-    ThreadPool(ThreadPool&&) noexcept = default;
-    ThreadPool& operator=(ThreadPool&&) noexcept = default;
-
-    // 析构函数，确保所有线程完成并退出
-    ~ThreadPool() {
-        {
-            std::unique_lock<std::mutex> lock(pool_->mtx); // 锁住状态变量
-            pool_->isClosed = true; // 设置关闭标志
-        }
-        pool_->cond.notify_all(); // 唤醒所有等待的线程
-        // 等待所有工作线程结束
-        for(auto& worker : workers_) {
-            worker.join();
-        }
-    }
-
-    // 添加任务到线程池的模板函数
-    template<typename F, typename = std::enable_if_t<std::is_invocable_r_v<void, F>>>
-    void AddTask(F&& task) {
-        // 特化处理std::function<void()>
-        if constexpr(std::is_same_v<F, std::function<void()>>) {
-            std::unique_lock<std::mutex> lock(pool_->mtx);
-            if(task) { // 防止空函数被添加
-                pool_->tasks.emplace(std::move(task)); // 将任务移入任务队列
-                pool_->cond.notify_one(); // 通知一个等待的线程有新任务
+            // 创建threadCount个子线程
+            for(size_t i = 0; i < threadCount; i++) {
+                std::thread([pool = pool_] {
+                    std::unique_lock<std::mutex> locker(pool->mtx);
+                    while(true) {
+                        if(!pool->tasks.empty()) {
+                            // 从任务队列中取第一个任务
+                            auto task = std::move(pool->tasks.front());
+                            // 移除掉队列中第一个元素
+                            pool->tasks.pop();
+                            locker.unlock();
+                            task();
+                            locker.lock();
+                        } 
+                        else if(pool->isClosed) break;
+                        else pool->cond.wait(locker);   // 如果队列为空，等待
+                    }
+                }).detach();// 线程分离
             }
-        } else { // 非std::function<void()>类型的任务则转换后添加
-            AddTask(std::function<void()>{std::forward<F>(task)});
+    }
+
+    ThreadPool() = default;
+
+    ThreadPool(ThreadPool&&) = default;
+    
+    ~ThreadPool() {
+        if(static_cast<bool>(pool_)) {
+            {
+                std::lock_guard<std::mutex> locker(pool_->mtx);
+                pool_->isClosed = true;
+            }
+            pool_->cond.notify_all();
         }
+    }
+
+    template<class F>
+    void AddTask(F&& task) {
+        {
+            std::lock_guard<std::mutex> locker(pool_->mtx);
+            pool_->tasks.emplace(std::forward<F>(task));
+        }
+        pool_->cond.notify_one();   // 唤醒一个等待的线程
     }
 
 private:
-    // 工作线程执行的函数
-    void WorkerThread() {
-        std::unique_lock<std::mutex> lock(pool_->mtx);
-        while(!pool_->isClosed || !pool_->tasks.empty()) { // 当未关闭或有任务时继续
-            if(pool_->tasks.empty()) { // 无任务则等待
-                pool_->cond.wait(lock);
-            } else {
-                // 获取并移除队首任务，解锁执行，完成后重新上锁
-                auto task = std::move(pool_->tasks.front());
-                pool_->tasks.pop();
-                lock.unlock();
-                task();
-                lock.lock();
-            }
-        }
-    }
-
-    // 线程池内部使用的数据结构，包括同步锁、条件变量、关闭标志和任务队列
+    // 结构体
     struct Pool {
-        std::mutex mtx;
-        std::condition_variable cond;
-        bool isClosed{false};
-        std::queue<std::function<void()>> tasks;
+        std::mutex mtx;     // 互斥锁
+        std::condition_variable cond;   // 条件变量
+        bool isClosed;          // 是否关闭
+        std::queue<std::function<void()>> tasks;    // 队列（保存的是任务）
     };
-
-    // 实例变量：共享池状态指针和工作线程集合
-    std::shared_ptr<Pool> pool_;
-    std::vector<std::thread> workers_;
+    std::shared_ptr<Pool> pool_;  //  池子
 };
 
-// 预处理器指令，通常用来指示头文件的结尾，此处作为示例注释结束
-#endif // THREADPOOL_H
+
+#endif //THREADPOOL_H
