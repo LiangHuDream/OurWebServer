@@ -1,4 +1,4 @@
-<mxfile host="app.diagrams.net" modified="2024-06-18T14:34:15.240Z" agent="Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/124.0.0.0 Safari/537.36" etag="kMY2d0CyRtbx6fWTYU2r" version="24.5.5" type="github">
+<mxfile host="app.diagrams.net" modified="2024-06-18T14:45:11.027Z" agent="Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/124.0.0.0 Safari/537.36" etag="vouWQR6iV9xW6xlXN4I6" version="24.5.5" type="github">
   <diagram name="Page-1" id="b5b7bab2-c9e2-2cf4-8b2a-24fd1a2a6d21">
     <mxGraphModel dx="2074" dy="1098" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="827" pageHeight="1169" background="none" math="0" shadow="0">
       <root>
@@ -15,7 +15,7 @@
             <mxPoint x="-27" y="7" as="offset" />
           </mxGeometry>
         </mxCell>
-        <mxCell id="LhfyZljwdzAr05syaVW1-19" value="«Annotation»&lt;div&gt;文字图片&lt;/div&gt;" style="html=1;dropTarget=0;whiteSpace=wrap;" parent="1" vertex="1">
+        <mxCell id="LhfyZljwdzAr05syaVW1-19" value="«Annotation»&lt;div&gt;文字图片&lt;/div&gt;" style="html=1;dropTarget=0;whiteSpace=wrap;fillColor=#fff2cc;strokeColor=#d6b656;" parent="1" vertex="1">
           <mxGeometry x="540" y="440" width="110" height="50" as="geometry" />
         </mxCell>
         <mxCell id="LhfyZljwdzAr05syaVW1-20" value="" style="shape=module;jettyWidth=8;jettyHeight=4;" parent="LhfyZljwdzAr05syaVW1-19" vertex="1">
