@@ -36,7 +36,7 @@ void Buffer::Retrieve(size_t len) {
 
 //buff.RetrieveUntil(lineEnd + 2);
 void Buffer::RetrieveUntil(const char* end) {
-    assert(Peek() <= end );
+    assert(BeginPtr_() <= end && end <= BeginWriteConst());
     Retrieve(end - Peek());
 }
 
