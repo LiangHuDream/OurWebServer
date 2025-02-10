@@ -7,12 +7,20 @@ size_t Buffer::ReadableBytes() const {
     return writePos_ - readPos_;
 }
 
-// 可以写的数据大小，缓冲区的总大小 - 写位置
+/**
+ * @brief 获取缓冲区中可写区域的大小
+ * 
+ * @return 可写区域的大小，即缓冲区总大小减去当前写位置
+ */
 size_t Buffer::WritableBytes() const {
     return buffer_.size() - writePos_;
 }
 
-// 前面可以用的空间，当前读取到哪个位置，就是前面可以用的空间大小
+/**
+ * @brief 获取缓冲区中可前置（prepend）区域的大小
+ * 
+ * @return 可前置区域的大小，即当前读位置
+ */
 size_t Buffer::PrependableBytes() const {
     return readPos_;
 }
