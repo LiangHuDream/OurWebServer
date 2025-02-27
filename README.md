@@ -12,3 +12,4 @@ Google C++ Style Guide.[[Google C++ Style Guide](https://google.github.io/styleg
 C++ Core Guidelines.[[C++ Core Guidelines](https://isocpp.github.io/CppCoreGuidelines/CppCoreGuidelines)]</br>
 # 下一步计划
 1. 整理出webserver的设计文档
+2.makefile全部改成cmakelist
