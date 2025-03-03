@@ -15,7 +15,7 @@
  *    3 - internal error, fork failed
  * 
  */ 
-#include "socket.c"
+#include "socket.h"
 #include <unistd.h>
 #include <sys/param.h>
 #include <rpc/types.h>
@@ -23,6 +23,17 @@
 #include <strings.h>
 #include <time.h>
 #include <signal.h>
+#include <sys/types.h>
+#include <sys/socket.h>
+#include <fcntl.h>
+#include <netinet/in.h>
+#include <arpa/inet.h>
+#include <netdb.h>
+#include <sys/time.h>
+#include <string.h>
+#include <stdio.h>
+#include <stdlib.h>
+#include <stdarg.h>
 
 /* values */
 volatile int timerexpired=0;

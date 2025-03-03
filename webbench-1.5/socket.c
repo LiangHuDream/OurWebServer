@@ -12,8 +12,8 @@
   environment:  DEC Ultrix 4.3
   description:  UNIX sockets code.
  ***********************************************************************/
-
-#include <sys/types.h>
+#include "socket.h"
+ #include <sys/types.h>
 #include <sys/socket.h>
 #include <fcntl.h>
 #include <netinet/in.h>
