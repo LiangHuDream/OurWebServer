@@ -1,9 +1,9 @@
 set(CMAKE_C_FLAGS "-Wall -ggdb -W -O")
 
-file(GLOB_RECURSE SOURCES *.c)
+file(GLOB_RECURSE SOURCES *.cpp)
 include_directories(/usr/include/tirpc)
 
-add_executable(webbench webbench.c socket.c)
+add_executable(webbench webbench.cpp socket.cpp)
 
 install(TARGETS webbench
     RUNTIME DESTINATION ${CMAKE_INSTALL_PREFIX}/bin

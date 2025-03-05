@@ -20,10 +20,10 @@
 #include <arpa/inet.h>
 #include <netdb.h>
 #include <sys/time.h>
-#include <string.h>
 #include <unistd.h>
-#include <stdio.h>
-#include <stdlib.h>
+#include <cstdio>
+#include <cstdlib>
+#include <cstring>
 #include <stdarg.h>
 
 int Socket(const char *host, int clientPort)

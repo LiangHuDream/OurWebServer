@@ -1,0 +1,84 @@
+<mxfile host="Electron" modified="2025-03-05T12:43:40.505Z" agent="Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) draw.io/24.5.3 Chrome/124.0.6367.207 Electron/30.0.6 Safari/537.36" etag="8QOCu-pdVKUPM3BZzgfg" version="24.5.3" type="device">
+  <diagram name="Page-1" id="rCmQX-5UDFl9maIlFX1m">
+    <mxGraphModel dx="1098" dy="1180" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="850" pageHeight="1100" math="0" shadow="0">
+      <root>
+        <mxCell id="0" />
+        <mxCell id="1" parent="0" />
+        <mxCell id="6-Q-xc4eWnE0yOGDDGUj-1" value="客户端" style="shape=umlLifeline;perimeter=lifelinePerimeter;whiteSpace=wrap;container=1;dropTarget=0;collapsible=0;recursiveResize=0;outlineConnect=0;portConstraint=eastwest;newEdgeStyle={&quot;edgeStyle&quot;:&quot;elbowEdgeStyle&quot;,&quot;elbow&quot;:&quot;vertical&quot;,&quot;curved&quot;:0,&quot;rounded&quot;:0};size=65;" vertex="1" parent="1">
+          <mxGeometry x="20" y="20" width="150" height="576" as="geometry" />
+        </mxCell>
+        <mxCell id="6-Q-xc4eWnE0yOGDDGUj-2" value="Web服务器" style="shape=umlLifeline;perimeter=lifelinePerimeter;whiteSpace=wrap;container=1;dropTarget=0;collapsible=0;recursiveResize=0;outlineConnect=0;portConstraint=eastwest;newEdgeStyle={&quot;edgeStyle&quot;:&quot;elbowEdgeStyle&quot;,&quot;elbow&quot;:&quot;vertical&quot;,&quot;curved&quot;:0,&quot;rounded&quot;:0};size=65;" vertex="1" parent="1">
+          <mxGeometry x="220" y="20" width="150" height="576" as="geometry" />
+        </mxCell>
+        <mxCell id="6-Q-xc4eWnE0yOGDDGUj-3" value="HTTP处理模块" style="shape=umlLifeline;perimeter=lifelinePerimeter;whiteSpace=wrap;container=1;dropTarget=0;collapsible=0;recursiveResize=0;outlineConnect=0;portConstraint=eastwest;newEdgeStyle={&quot;edgeStyle&quot;:&quot;elbowEdgeStyle&quot;,&quot;elbow&quot;:&quot;vertical&quot;,&quot;curved&quot;:0,&quot;rounded&quot;:0};size=65;" vertex="1" parent="1">
+          <mxGeometry x="420" y="20" width="150" height="576" as="geometry" />
+        </mxCell>
+        <mxCell id="6-Q-xc4eWnE0yOGDDGUj-4" value="线程池模块" style="shape=umlLifeline;perimeter=lifelinePerimeter;whiteSpace=wrap;container=1;dropTarget=0;collapsible=0;recursiveResize=0;outlineConnect=0;portConstraint=eastwest;newEdgeStyle={&quot;edgeStyle&quot;:&quot;elbowEdgeStyle&quot;,&quot;elbow&quot;:&quot;vertical&quot;,&quot;curved&quot;:0,&quot;rounded&quot;:0};size=65;" vertex="1" parent="1">
+          <mxGeometry x="620" y="20" width="150" height="576" as="geometry" />
+        </mxCell>
+        <mxCell id="6-Q-xc4eWnE0yOGDDGUj-5" value="日志模块" style="shape=umlLifeline;perimeter=lifelinePerimeter;whiteSpace=wrap;container=1;dropTarget=0;collapsible=0;recursiveResize=0;outlineConnect=0;portConstraint=eastwest;newEdgeStyle={&quot;edgeStyle&quot;:&quot;elbowEdgeStyle&quot;,&quot;elbow&quot;:&quot;vertical&quot;,&quot;curved&quot;:0,&quot;rounded&quot;:0};size=65;" vertex="1" parent="1">
+          <mxGeometry x="820" y="20" width="150" height="576" as="geometry" />
+        </mxCell>
+        <mxCell id="6-Q-xc4eWnE0yOGDDGUj-6" value="定时器模块" style="shape=umlLifeline;perimeter=lifelinePerimeter;whiteSpace=wrap;container=1;dropTarget=0;collapsible=0;recursiveResize=0;outlineConnect=0;portConstraint=eastwest;newEdgeStyle={&quot;edgeStyle&quot;:&quot;elbowEdgeStyle&quot;,&quot;elbow&quot;:&quot;vertical&quot;,&quot;curved&quot;:0,&quot;rounded&quot;:0};size=65;" vertex="1" parent="1">
+          <mxGeometry x="1020" y="20" width="150" height="576" as="geometry" />
+        </mxCell>
+        <mxCell id="6-Q-xc4eWnE0yOGDDGUj-7" value="发送HTTP请求" style="verticalAlign=bottom;endArrow=block;edgeStyle=elbowEdgeStyle;elbow=vertical;curved=0;rounded=0;" edge="1" parent="1" source="6-Q-xc4eWnE0yOGDDGUj-1" target="6-Q-xc4eWnE0yOGDDGUj-2">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="204" y="127" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="6-Q-xc4eWnE0yOGDDGUj-8" value="解析请求" style="verticalAlign=bottom;endArrow=block;edgeStyle=elbowEdgeStyle;elbow=vertical;curved=0;rounded=0;" edge="1" parent="1" source="6-Q-xc4eWnE0yOGDDGUj-2" target="6-Q-xc4eWnE0yOGDDGUj-3">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="404" y="179" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="6-Q-xc4eWnE0yOGDDGUj-9" value="分配任务" style="verticalAlign=bottom;endArrow=block;edgeStyle=elbowEdgeStyle;elbow=vertical;curved=0;rounded=0;" edge="1" parent="1" source="6-Q-xc4eWnE0yOGDDGUj-2" target="6-Q-xc4eWnE0yOGDDGUj-4">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="504" y="231" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="6-Q-xc4eWnE0yOGDDGUj-10" value="处理请求" style="verticalAlign=bottom;endArrow=block;edgeStyle=elbowEdgeStyle;elbow=vertical;curved=0;rounded=0;" edge="1" parent="1" source="6-Q-xc4eWnE0yOGDDGUj-4" target="6-Q-xc4eWnE0yOGDDGUj-3">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="607" y="283" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="6-Q-xc4eWnE0yOGDDGUj-11" value="生成响应" style="verticalAlign=bottom;endArrow=block;edgeStyle=elbowEdgeStyle;elbow=vertical;curved=0;rounded=0;" edge="1" parent="1" source="6-Q-xc4eWnE0yOGDDGUj-3" target="6-Q-xc4eWnE0yOGDDGUj-2">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="407" y="335" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="6-Q-xc4eWnE0yOGDDGUj-12" value="返回响应" style="verticalAlign=bottom;endArrow=block;edgeStyle=elbowEdgeStyle;elbow=vertical;curved=0;rounded=0;" edge="1" parent="1" source="6-Q-xc4eWnE0yOGDDGUj-2" target="6-Q-xc4eWnE0yOGDDGUj-1">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="207" y="387" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="6-Q-xc4eWnE0yOGDDGUj-13" value="记录日志" style="verticalAlign=bottom;endArrow=block;edgeStyle=elbowEdgeStyle;elbow=vertical;curved=0;rounded=0;" edge="1" parent="1" source="6-Q-xc4eWnE0yOGDDGUj-2" target="6-Q-xc4eWnE0yOGDDGUj-5">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="604" y="439" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="6-Q-xc4eWnE0yOGDDGUj-14" value="管理连接超时" style="verticalAlign=bottom;endArrow=block;edgeStyle=elbowEdgeStyle;elbow=vertical;curved=0;rounded=0;" edge="1" parent="1" source="6-Q-xc4eWnE0yOGDDGUj-2" target="6-Q-xc4eWnE0yOGDDGUj-6">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="704" y="491" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+      </root>
+    </mxGraphModel>
+  </diagram>
+</mxfile>

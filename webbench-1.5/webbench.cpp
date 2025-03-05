@@ -30,9 +30,9 @@
 #include <arpa/inet.h>
 #include <netdb.h>
 #include <sys/time.h>
-#include <string.h>
-#include <stdio.h>
-#include <stdlib.h>
+#include <cstdio>
+#include <cstdlib>
+#include <cstring>
 #include <stdarg.h>
 
 /* values */
@@ -170,7 +170,7 @@ int main(int argc, char *argv[])
  if(clients==0) clients=1;
  if(benchtime==0) benchtime=60;
  /* Copyright */
- fprintf(stderr,"Webbench - Simple Web Benchmark "PROGRAM_VERSION"\n"
+ fprintf(stderr,"Webbench - Simple Web Benchmark " PROGRAM_VERSION"\n"
 	 "Copyright (c) Radim Kolar 1997-2004, GPL Open Source Software.\n"
 	 );
  build_request(argv[optind]);
@@ -283,7 +283,7 @@ void build_request(const char *url)
 	  strcat(request," HTTP/1.1");
   strcat(request,"\r\n");
   if(http10>0)
-	  strcat(request,"User-Agent: WebBench "PROGRAM_VERSION"\r\n");
+	  strcat(request,"User-Agent: WebBench " PROGRAM_VERSION"\r\n");
   if(proxyhost==NULL && http10>0)
   {
 	  strcat(request,"Host: ");

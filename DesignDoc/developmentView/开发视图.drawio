@@ -1,0 +1,129 @@
+<mxfile host="Electron" modified="2025-03-05T12:41:13.760Z" agent="Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) draw.io/24.5.3 Chrome/124.0.6367.207 Electron/30.0.6 Safari/537.36" etag="Fj4mpCP7LBE2hp508zjB" version="24.5.3" type="device">
+  <diagram name="Page-1" id="eJYs57RcQCri2nJWXuJ-">
+    <mxGraphModel dx="1098" dy="1180" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="850" pageHeight="1100" math="0" shadow="0">
+      <root>
+        <mxCell id="0" />
+        <mxCell id="1" parent="0" />
+        <mxCell id="surbmx548LWNU9NCvFws-1" value="OurWebServer" style="rounded=1;absoluteArcSize=1;arcSize=14;whiteSpace=wrap;strokeWidth=2;" vertex="1" parent="1">
+          <mxGeometry x="20" y="176" width="117" height="34" as="geometry" />
+        </mxCell>
+        <mxCell id="surbmx548LWNU9NCvFws-2" value="依赖" style="rounded=1;absoluteArcSize=1;arcSize=14;whiteSpace=wrap;strokeWidth=2;" vertex="1" parent="1">
+          <mxGeometry x="447" y="234" width="49" height="34" as="geometry" />
+        </mxCell>
+        <mxCell id="surbmx548LWNU9NCvFws-3" value="config模块" style="rounded=1;absoluteArcSize=1;arcSize=14;whiteSpace=wrap;strokeWidth=2;" vertex="1" parent="1">
+          <mxGeometry x="188" y="20" width="91" height="34" as="geometry" />
+        </mxCell>
+        <mxCell id="surbmx548LWNU9NCvFws-4" value="依赖" style="rounded=1;absoluteArcSize=1;arcSize=14;whiteSpace=wrap;strokeWidth=2;" vertex="1" parent="1">
+          <mxGeometry x="338" y="124" width="49" height="34" as="geometry" />
+        </mxCell>
+        <mxCell id="surbmx548LWNU9NCvFws-5" value="log模块" style="rounded=1;absoluteArcSize=1;arcSize=14;whiteSpace=wrap;strokeWidth=2;" vertex="1" parent="1">
+          <mxGeometry x="329" y="406" width="68" height="34" as="geometry" />
+        </mxCell>
+        <mxCell id="surbmx548LWNU9NCvFws-6" value="依赖" style="rounded=1;absoluteArcSize=1;arcSize=14;whiteSpace=wrap;strokeWidth=2;" vertex="1" parent="1">
+          <mxGeometry x="338" y="208" width="49" height="34" as="geometry" />
+        </mxCell>
+        <mxCell id="surbmx548LWNU9NCvFws-7" value="server模块" style="rounded=1;absoluteArcSize=1;arcSize=14;whiteSpace=wrap;strokeWidth=2;" vertex="1" parent="1">
+          <mxGeometry x="187" y="234" width="91" height="34" as="geometry" />
+        </mxCell>
+        <mxCell id="surbmx548LWNU9NCvFws-8" value="依赖" style="rounded=1;absoluteArcSize=1;arcSize=14;whiteSpace=wrap;strokeWidth=2;" vertex="1" parent="1">
+          <mxGeometry x="338" y="302" width="49" height="34" as="geometry" />
+        </mxCell>
+        <mxCell id="surbmx548LWNU9NCvFws-9" value="" style="curved=1;startArrow=none;endArrow=block;exitX=0.62;exitY=0;entryX=0.39;entryY=0;rounded=0;" edge="1" parent="1" source="surbmx548LWNU9NCvFws-1" target="surbmx548LWNU9NCvFws-2">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="162" y="89" />
+              <mxPoint x="422" y="89" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="surbmx548LWNU9NCvFws-10" value="" style="curved=1;startArrow=none;endArrow=block;exitX=0.58;exitY=0;entryX=0;entryY=0.5;rounded=0;" edge="1" parent="1" source="surbmx548LWNU9NCvFws-1" target="surbmx548LWNU9NCvFws-3">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="162" y="37" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="surbmx548LWNU9NCvFws-11" value="" style="curved=1;startArrow=none;endArrow=block;exitX=0.68;exitY=0;entryX=0.01;entryY=0.31;rounded=0;" edge="1" parent="1" source="surbmx548LWNU9NCvFws-1" target="surbmx548LWNU9NCvFws-4">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="162" y="125" />
+              <mxPoint x="304" y="125" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="surbmx548LWNU9NCvFws-12" value="" style="curved=1;startArrow=none;endArrow=block;exitX=0.55;exitY=1;entryX=0;entryY=0.5;rounded=0;" edge="1" parent="1" source="surbmx548LWNU9NCvFws-1" target="surbmx548LWNU9NCvFws-5">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="162" y="423" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="surbmx548LWNU9NCvFws-13" value="" style="curved=1;startArrow=none;endArrow=block;exitX=1;exitY=0.5;entryX=0.01;entryY=0.11;rounded=0;" edge="1" parent="1" source="surbmx548LWNU9NCvFws-1" target="surbmx548LWNU9NCvFws-6">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="304" y="193" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="surbmx548LWNU9NCvFws-14" value="" style="curved=1;startArrow=none;endArrow=block;exitX=0.71;exitY=1;entryX=0.01;entryY=0.5;rounded=0;" edge="1" parent="1" source="surbmx548LWNU9NCvFws-1" target="surbmx548LWNU9NCvFws-7">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="162" y="251" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="surbmx548LWNU9NCvFws-15" value="" style="curved=1;startArrow=none;endArrow=block;exitX=0.61;exitY=1;entryX=0.01;entryY=0.31;rounded=0;" edge="1" parent="1" source="surbmx548LWNU9NCvFws-1" target="surbmx548LWNU9NCvFws-8">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="162" y="303" />
+              <mxPoint x="304" y="303" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="surbmx548LWNU9NCvFws-16" value="" style="curved=1;startArrow=none;endArrow=block;exitX=1.01;exitY=0.5;entryX=0.34;entryY=0;rounded=0;" edge="1" parent="1" source="surbmx548LWNU9NCvFws-4" target="surbmx548LWNU9NCvFws-2">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="422" y="141" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="surbmx548LWNU9NCvFws-17" value="" style="curved=1;startArrow=none;endArrow=block;exitX=0.62;exitY=1;entryX=0.36;entryY=1;rounded=0;" edge="1" parent="1" source="surbmx548LWNU9NCvFws-7" target="surbmx548LWNU9NCvFws-2">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="304" y="371" />
+              <mxPoint x="422" y="371" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="surbmx548LWNU9NCvFws-18" value="" style="curved=1;startArrow=none;endArrow=block;exitX=0.68;exitY=0;entryX=0.01;entryY=0.89;rounded=0;" edge="1" parent="1" source="surbmx548LWNU9NCvFws-7" target="surbmx548LWNU9NCvFws-4">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="304" y="173" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="surbmx548LWNU9NCvFws-19" value="" style="curved=1;startArrow=none;endArrow=block;exitX=1.01;exitY=0.5;entryX=0.01;entryY=0.82;rounded=0;" edge="1" parent="1" source="surbmx548LWNU9NCvFws-7" target="surbmx548LWNU9NCvFws-6">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="304" y="251" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="surbmx548LWNU9NCvFws-20" value="" style="curved=1;startArrow=none;endArrow=block;exitX=0.66;exitY=1;entryX=0.01;entryY=0.69;rounded=0;" edge="1" parent="1" source="surbmx548LWNU9NCvFws-7" target="surbmx548LWNU9NCvFws-8">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="304" y="335" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="surbmx548LWNU9NCvFws-21" value="" style="curved=1;startArrow=none;endArrow=block;exitX=1;exitY=0.5;entryX=0.4;entryY=1;rounded=0;" edge="1" parent="1" source="surbmx548LWNU9NCvFws-5" target="surbmx548LWNU9NCvFws-2">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="422" y="423" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+      </root>
+    </mxGraphModel>
+  </diagram>
+</mxfile>
