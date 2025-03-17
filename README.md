@@ -15,5 +15,5 @@ C++ Core Guidelines.[[C++ Core Guidelines](https://isocpp.github.io/CppCoreGuide
 | 时间 | 计划| 完成 |执行人
 |------|------|-----|-----|
 | 2025/2/28 | 2025/3/3 makefile全部改成cmakelist|Y|LiangHuDream|
-| 2025/2/28 | 2025/3/9整理出webserver的设计文档|  |
-| 2025/2/28 | 2025/3/9整理出webserver的设计文档|   |
+| 2025/2/28 | 2025/3/9整理出webserver的设计文档| Y|LiangHuDream|
+| 2025/2/28 | 2025/3/9整理出webserver的设计文档|  Y|LiangHuDream|
